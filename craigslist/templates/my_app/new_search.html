@@ -1,44 +1,22 @@
 {% extends 'base.html' %} {% block content %}
 <h2 style="text-align: center">{{ search | title }}</h2>
+
+
 <div class="row">
+    {% for post in final_postings %}
     <div class="col s4">
-        <div class="card" style=" height:350px; overflow: hidden;">
+        <div class="card" style=" height:380px; overflow: hidden;">
             <div class="card-image" style=" height: 210px; overflow: hidden;">
-                <a href="/"><img src="https://ewardsmain.s3-ap-southeast-1.amazonaws.com/ewards/ig/pushimage/202109273004225416.jpg" alt=""></a>
+                <a href="{{ post.1 }}"><img src="{{ post.3 }}" alt=""></a>
             </div>
             <div class="card-content">
-                <p>ijuhygv </p>
+                <p>{{ post.0 }}</p>
             </div>
             <div class="card-action">
-                <a href="/">View listing: Price /</a>
+                <a href="{{ post.1 }}">View listing: Price {{ post.2 }}</a>
             </div>
         </div>
     </div>
-    <div class="col s4">
-        <div class="card" style=" height: 350px; overflow: hidden;">
-            <div class="card-image" style=" height: 210px; overflow: hidden;">
-                <a href=""><img src="https://ewardsmain.s3-ap-southeast-1.amazonaws.com/ewards/ig/pushimage/202109273004225416.jpg" alt=""></a>
-            </div>
-            <div class="card-content">
-                <p>ijuhygv </p>
-            </div>
-            <div class="card-action">
-                <a href="/">View listing: Price /</a>
-            </div>
-        </div>
-    </div>
-    <div class="col s4">
-        <div class="card" style=" height: 350px; overflow: hidden;">
-            <div class="card-image" style=" height: 210px; overflow: hidden;">
-                <a href="/"><img src="https://ewardsmain.s3-ap-southeast-1.amazonaws.com/ewards/ig/pushimage/202109273004225416.jpg" alt=""></a>
-            </div>
-            <div class="card-content">
-                <p>ijuhygv </p>
-            </div>
-            <div class="card-action">
-                <a href="/">View listing: Price /</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock content %}
